@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded = false;
 
-    Vector2 bottomCheck, roofCheck, lowCheck, highCheck, pitCheck;
+    Vector2 bottomCheck, roofCheck, roofCheck2, lowCheck, highCheck, pitCheck;
 
     void Awake()
     {
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
         bottomCheck = new Vector2(collider.offset.x, collider.offset.y - collider.size.y * 0.5f); //middle bottom
         roofCheck = new Vector2(collider.offset.x - collider.size.x * 0.5f, collider.offset.y); //left center
+        roofCheck2 = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y); //right center
         lowCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.25f); //right 25% low
         highCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y + collider.size.y * 0.25f); //right 25% high
         pitCheck = new Vector2(collider.offset.x + detectionDistance, collider.offset.y - collider.size.y * 0.5f); //right bottom
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         if (Raycast(lowCheck, Vector2.right, detectionDistance, groundMask)) flag |= DetectionFlags.LowObstacle;
         if (Raycast(highCheck, Vector2.right, detectionDistance, groundMask)) flag |= DetectionFlags.HighObstacle;
         if (Raycast(roofCheck, Vector2.up, detectionDistance, groundMask)) flag |= DetectionFlags.Roof;
+        if (Raycast(roofCheck2, Vector2.up, detectionDistance, groundMask)) flag |= DetectionFlags.Roof;
         if (!Raycast(pitCheck, Vector2.down, detectionDistance, groundMask)) flag |= DetectionFlags.Pit;
 
         return flag;
