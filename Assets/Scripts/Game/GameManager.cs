@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         intro?.SetActive(false);
         Time.timeScale = 1.0f;
+        PlayerData.Reset();
     }
 
     public void StopGame()

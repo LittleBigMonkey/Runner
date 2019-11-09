@@ -14,4 +14,9 @@ public static class PlayerData
             ScoreChanged?.Invoke(score);
         }
     }
+
+    public static void Reset()
+    {
+        score = 0;
+    }
 }
