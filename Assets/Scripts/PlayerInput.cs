@@ -3,27 +3,21 @@
 public class PlayerInput : MonoBehaviour
 {
     public float tolerance = 0.1f;
-    public Platform platform;
+
+    public PlayerAction buildAction;
+    public PlayerAction destroyAction;
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            var point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var collider = Physics2D.OverlapCircle(point, tolerance);
 
             if (collider)
-                collider?.GetComponent<Destroyable>()?.Activate();
+                destroyAction.Execute(collider);
             else
-                CreatePlatform(point);
+                buildAction.Execute(point);
         }
-    }
-
-    void CreatePlatform(Vector2 position)
-    {
-        position.x = Mathf.Floor(position.x) + 0.5f; //align to grid
-        position.y = Mathf.Floor(position.y) + 0.5f;
-
-        Instantiate(platform, position, Quaternion.identity).Activate();
     }
 }

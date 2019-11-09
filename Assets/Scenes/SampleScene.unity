@@ -385,8 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tolerance: 0.1
-  platform: {fileID: 3518685202318062189, guid: 28d916d83ee0b634ca6f819082dd56e1,
-    type: 3}
+  buildAction: {fileID: 11400000, guid: afc188b39a85ff440a5460c2491793c2, type: 2}
+  destroyAction: {fileID: 11400000, guid: 3fd9f82b966c19c4db391e909be0209b, type: 2}
 --- !u!1 &447228630
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,9 +802,8 @@ MonoBehaviour:
   - {fileID: 7823281543521360229, guid: 965eeec88d9982e4a851bf0427f896cf, type: 3}
   mediumChunks:
   - {fileID: 7823281543521360229, guid: 34aff8b13ae257246b0caf3970d1485d, type: 3}
-  - {fileID: 7823281543521360229, guid: 54c5145cd1cc4014999068c1e7e238df, type: 3}
   hardChunks:
-  - {fileID: 7823281543521360229, guid: 34aff8b13ae257246b0caf3970d1485d, type: 3}
+  - {fileID: 7823281543521360229, guid: 54c5145cd1cc4014999068c1e7e238df, type: 3}
   mediumTime: 10
   hardTime: 30
 --- !u!4 &766895811
