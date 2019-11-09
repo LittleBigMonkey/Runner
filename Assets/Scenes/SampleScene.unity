@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tolerance: 0.1
+  platform: {fileID: 3518685202318062189, guid: 28d916d83ee0b634ca6f819082dd56e1,
+    type: 3}
 --- !u!1 &447228630
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +799,7 @@ MonoBehaviour:
   - {fileID: 7823281543521360229, guid: 538df917b26c3134c93a0cd9cf5c7b48, type: 3}
   - {fileID: 7823281543521360229, guid: 965eeec88d9982e4a851bf0427f896cf, type: 3}
   - {fileID: 7823281543521360229, guid: 34aff8b13ae257246b0caf3970d1485d, type: 3}
+  - {fileID: 7823281543521360229, guid: 54c5145cd1cc4014999068c1e7e238df, type: 3}
   chunkSize: 20
   maxSpawnedObjects: 3
 --- !u!4 &766895811
