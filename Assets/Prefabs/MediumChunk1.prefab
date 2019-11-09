@@ -431,6 +431,7 @@ Transform:
   - {fileID: 3771353894434656003}
   - {fileID: 4743529968016273772}
   - {fileID: 2760316297496411936}
+  - {fileID: 2401646018609307965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -757,6 +758,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1672693410808628645, guid: 03a2170e13ffae948913b9a0b4f5ef51,
     type: 3}
   m_PrefabInstance: {fileID: 6260846347304645833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8365347653636162364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5734081954750638427}
+    m_Modifications:
+    - target: {fileID: 7088841923863754447, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 571f83ebf70e9d14a9e786c5e8fc6870, type: 3}
+--- !u!4 &2401646018609307965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+    type: 3}
+  m_PrefabInstance: {fileID: 8365347653636162364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8379257261069622682
 PrefabInstance:

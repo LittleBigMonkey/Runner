@@ -343,44 +343,44 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 2274185537159161780}
     m_ColliderPaths:
-    - - X: 49999942
+    - - X: 199999971
         Y: -10000000
-      - X: 49999942
+      - X: 199999971
         Y: 0
-      - X: 0
-        Y: -58
-      - X: 58
+      - X: 130000000
+        Y: -29
+      - X: 130000029
         Y: -10000000
-    - - X: 109999942
+    - - X: 109999971
         Y: -10000000
-      - X: 109999942
+      - X: 109999971
         Y: 0
       - X: 70000000
-        Y: -58
-      - X: 70000058
+        Y: -29
+      - X: 70000029
         Y: -10000000
-    - - X: 199999942
+    - - X: 49999971
         Y: -10000000
-      - X: 199999942
+      - X: 49999971
         Y: 0
-      - X: 130000100
-        Y: -54
-      - X: 130000129
+      - X: 0
+        Y: -29
+      - X: 29
         Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 4.9999914, y: -1}
-      - {x: 4.9999914, y: 0}
-      - {x: 0, y: -0.0000087}
-      - {x: 0.0000087, y: -1}
-    - - {x: 10.999991, y: -1}
-      - {x: 10.999991, y: 0}
-      - {x: 7, y: -0.0000087}
-      - {x: 7.000009, y: -1}
-    - - {x: 19.999992, y: -1}
-      - {x: 19.999992, y: 0}
-      - {x: 13.00001, y: -0.0000083}
-      - {x: 13.000016, y: -1}
+    - - {x: 4.9999943, y: -1}
+      - {x: 4.9999943, y: 0}
+      - {x: 0, y: -0.0000058}
+      - {x: 0.0000058, y: -1}
+    - - {x: 10.999994, y: -1}
+      - {x: 10.999994, y: 0}
+      - {x: 7, y: -0.0000058}
+      - {x: 7.0000057, y: -1}
+    - - {x: 19.999994, y: -1}
+      - {x: 19.999994, y: 0}
+      - {x: 13, y: -0.0000058}
+      - {x: 13.000006, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!1 &7823281543521360229
@@ -415,6 +415,7 @@ Transform:
   - {fileID: 2551207579014165588}
   - {fileID: 7228887718879693940}
   - {fileID: 7429141077470991657}
+  - {fileID: 8807275674035136814}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -442,6 +443,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a58a3ee385c0f46be78fd18938acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3421127796055624495
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5734081954750638427}
+    m_Modifications:
+    - target: {fileID: 7088841923863754447, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 571f83ebf70e9d14a9e786c5e8fc6870, type: 3}
+--- !u!4 &8807275674035136814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6144021544207245825, guid: 571f83ebf70e9d14a9e786c5e8fc6870,
+    type: 3}
+  m_PrefabInstance: {fileID: 3421127796055624495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8083686151057657996
 PrefabInstance:
   m_ObjectHideFlags: 0
