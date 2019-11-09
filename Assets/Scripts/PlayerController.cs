@@ -26,13 +26,13 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        jumpVelocity = Mathf.Sqrt(-2.0f * Physics2D.gravity.y * jumpHeight);
+        jumpVelocity = Mathf.Sqrt(-2.0f * Physics2D.gravity.y * rigidbody.gravityScale * jumpHeight);
 
         bottomCheck = new Vector2(collider.offset.x, collider.offset.y - collider.size.y * 0.5f); //middle bottom
         roofCheck = new Vector2(collider.offset.x - collider.size.x * 0.5f, collider.offset.y); //left center
         lowCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.25f); //right 25% low
         highCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y + collider.size.y * 0.25f); //right 25% high
-        pitCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.5f); //right bottom
+        pitCheck = new Vector2(collider.offset.x + detectionDistance, collider.offset.y - collider.size.y * 0.5f); //right bottom
     }
 
     void FixedUpdate()
