@@ -6,9 +6,14 @@ public class LevelGenerator : MonoBehaviour
 {
     public Transform player;
 
-    public List<GameObject> chunks = new List<GameObject>();
     public int chunkSize = 20;
     public int maxSpawnedObjects = 3;
+
+    public List<GameObject> easyChunks = new List<GameObject>();
+    public List<GameObject> mediumChunks = new List<GameObject>();
+    public List<GameObject> hardChunks = new List<GameObject>();
+
+    public float mediumTime, hardTime;
 
     int nextSpawn = 0;
 
@@ -24,6 +29,8 @@ public class LevelGenerator : MonoBehaviour
     void Spawn()
     {
         nextSpawn += chunkSize;
+
+        var chunks = Time.timeSinceLevelLoad > mediumTime ? Time.timeSinceLevelLoad > hardTime ? hardChunks : mediumChunks : easyChunks; //select chunks
 
         var go = GetInstance(chunks[Random.Range(0, chunks.Count)]); //get available instance
 
