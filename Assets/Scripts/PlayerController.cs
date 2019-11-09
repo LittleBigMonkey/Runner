@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded = false;
 
-    Vector2 bottomCheck, topCheck, lowCheck, highCheck;
+    Vector2 bottomCheck, roofCheck, lowCheck, highCheck, pitCheck;
 
     void Awake()
     {
@@ -28,30 +29,45 @@ public class PlayerController : MonoBehaviour
         jumpVelocity = Mathf.Sqrt(-2.0f * Physics2D.gravity.y * jumpHeight);
 
         bottomCheck = new Vector2(collider.offset.x, collider.offset.y - collider.size.y * 0.5f); //middle bottom
-        topCheck = new Vector2(collider.offset.x - collider.size.x * 0.5f, collider.offset.y); //left center
-        lowCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.5f + collider.size.y * 0.25f); //right 25% high
-        highCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.5f + collider.size.y * 0.75f); //right 75% high
+        roofCheck = new Vector2(collider.offset.x - collider.size.x * 0.5f, collider.offset.y); //left center
+        lowCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.25f); //right 25% low
+        highCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y + collider.size.y * 0.25f); //right 25% high
+        pitCheck = new Vector2(collider.offset.x + collider.size.x * 0.5f, collider.offset.y - collider.size.y * 0.5f); //right bottom
     }
 
     void FixedUpdate()
     {
+        var flag = PhysicCheck();
+
         velocity = rigidbody.velocity; //get current velocity
         velocity.x = speed; //set speed
 
-        isGrounded = Raycast(bottomCheck, Vector2.down, detectionDistance * 0.1f, groundMask);
 
-        if (isGrounded)
+        if (flag.HasFlag(DetectionFlags.Ground))
         {
-            if (Raycast(lowCheck, Vector2.right, detectionDistance, groundMask))
+            if (flag.HasFlag(DetectionFlags.LowObstacle) || flag.HasFlag(DetectionFlags.Pit))
                 Jump();
 
-            if (Raycast(highCheck, Vector2.right, detectionDistance, groundMask))
+            if (flag.HasFlag(DetectionFlags.HighObstacle))
                 Crouch();
-            else if (!Raycast(topCheck, Vector2.up, detectionDistance, groundMask))
+            else if (!flag.HasFlag(DetectionFlags.Roof))
                 StandUp();
         }
 
         rigidbody.velocity = velocity;
+    }
+
+    DetectionFlags PhysicCheck()
+    {
+        var flag = DetectionFlags.None;
+
+        if (Raycast(bottomCheck, Vector2.down, detectionDistance * 0.1f, groundMask)) flag |= DetectionFlags.Ground;
+        if (Raycast(lowCheck, Vector2.right, detectionDistance, groundMask)) flag |= DetectionFlags.LowObstacle;
+        if (Raycast(highCheck, Vector2.right, detectionDistance, groundMask)) flag |= DetectionFlags.HighObstacle;
+        if (Raycast(roofCheck, Vector2.up, detectionDistance, groundMask)) flag |= DetectionFlags.Roof;
+        if (!Raycast(pitCheck, Vector2.down, detectionDistance, groundMask)) flag |= DetectionFlags.Pit;
+
+        return flag;
     }
 
     RaycastHit2D Raycast(Vector2 offset, Vector2 direction, float length, LayerMask mask)
@@ -69,11 +85,22 @@ public class PlayerController : MonoBehaviour
 
     void Crouch()
     {
-        transform.localScale = new Vector3(1.0f, 0.45f, 1.0f);
+        transform.localScale = new Vector3(1.0f, 0.45f, 1.0f); //animation
     }
 
     void StandUp()
     {
-        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);  //animation
+    }
+
+    [Flags]
+    public enum DetectionFlags
+    {
+        None = 0,
+        Ground = 1,
+        LowObstacle = 2,
+        HighObstacle = 4,
+        Roof = 8,
+        Pit = 16
     }
 }
