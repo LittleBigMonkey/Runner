@@ -1479,8 +1479,8 @@ MonoBehaviour:
   - {fileID: 7823281543521360229, guid: 54c5145cd1cc4014999068c1e7e238df, type: 3}
   - {fileID: 7823281543521360229, guid: 7c3f31147b6054645aa8773a36226bca, type: 3}
   - {fileID: 7823281543521360229, guid: dc1730ff3db4e25499c8f47cbeb1143f, type: 3}
-  mediumTime: 15
-  hardTime: 30
+  mediumTime: 10
+  hardTime: 40
 --- !u!4 &766895811
 Transform:
   m_ObjectHideFlags: 0
