@@ -4,6 +4,9 @@ public class PlayerDeath : MonoBehaviour
 {
     new Rigidbody2D rigidbody;
 
+    public float timeout = 0.5f;
+    float hitTime = 0.0f;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -11,7 +14,14 @@ public class PlayerDeath : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeSinceLevelLoad > 1.0f && rigidbody.velocity.sqrMagnitude <= 0.01f) Die(); //death on stop
+        if (rigidbody.velocity.sqrMagnitude <= 0.001f)
+        {
+            hitTime += Time.deltaTime;
+
+            if (hitTime > timeout) Die(); //death on stop
+        }
+        else
+            hitTime = 0.0f;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
